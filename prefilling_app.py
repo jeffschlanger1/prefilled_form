@@ -15,7 +15,7 @@ load_dotenv()
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # form_url = os.getenv("form_url")
-form_url = st.secrets["form_url"]
+# form_url = st.secrets["form_url"]
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -135,7 +135,7 @@ def main():
                     st.json(extracted_json)
 
                     # Generate the prefilled Google Form URL
-                    form_url = form_url
+                    form_url = st.secrets["form_url"]
                     prefilled_url = generate_prefilled_url(form_url, extracted_json, summary)
                     
                     st.subheader("Prefilled Google Form URL")
